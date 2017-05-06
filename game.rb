@@ -8,9 +8,16 @@ class Game
 
   def play_round
     puts "We are playing a round"
-    # eliminate players w/o dice
+    players_for_round = players_with_dice
+    puts "The following players are in for this round: #{players_for_round}"
     # players roll
     # players bet or challenge
     # losing player loses a die
+  end
+
+  private
+
+  def players_with_dice
+    @players.select { |p| p.has_dice? }
   end
 end
