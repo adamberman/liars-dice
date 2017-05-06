@@ -1,6 +1,6 @@
 class Player
   def initialize
-    @dice = [2, 3, 4, 5, 6]
+    @dice = (0...5).to_a.map { Die.new }
     puts "You've created a player"
   end
 
