@@ -3,7 +3,6 @@ require_relative "./player"
 class Game
   def initialize
     @players = (0...4).to_a.map { Player.new }
-    @current_player = 0
   end
 
   def play_round
@@ -11,7 +10,7 @@ class Game
     players_for_round = players_with_dice
     puts "The following players are in for this round: #{players_for_round}"
     players_for_round.each(&:roll_dice)
-    # players roll
+    losing_player = play_round_of_betting(players_for_round)
     # players bet or challenge
     # losing player loses a die
   end
@@ -20,5 +19,18 @@ class Game
 
   def players_with_dice
     @players.select { |p| p.has_dice? }
+  end
+
+  def play_round_of_betting(players)
+    current_player = 0
+    current_bet = players[current_player].make_bet
+    while current_bet != :challenge do
+      current_player = (current_player + 1) % players.length
+      previous_bet = current_bet
+      current_bet = players[current_player].make_bet(previous_bet)
+    end
+
+    # handle challenge
+    # return losing player
   end
 end
