@@ -6,7 +6,7 @@ class LiarsDice
     # print instructions
     # get number of players
     game = Game.new
-    # play game
+    game.play_round
     # declare winner
   end
 end
