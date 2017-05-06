@@ -10,6 +10,7 @@ class Game
     puts "We are playing a round"
     players_for_round = players_with_dice
     puts "The following players are in for this round: #{players_for_round}"
+    players_for_round.each(&:roll_dice)
     # players roll
     # players bet or challenge
     # losing player loses a die

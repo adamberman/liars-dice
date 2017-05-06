@@ -7,4 +7,8 @@ class Player
   def has_dice?
     @dice.any?
   end
+
+  def roll_dice
+    @dice.each(&:roll)
+  end
 end

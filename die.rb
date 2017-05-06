@@ -1,7 +1,7 @@
 class Die
   attr_reader :value
 
-  def initialize
+  def roll
     @value = Random.new.rand(1..6)
   end
 end
