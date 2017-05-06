@@ -1,6 +1,8 @@
+require_relative "./player"
+
 class Game
   def initialize
-    @players = [1, 2, 3, 4] # stub for Player class
+    @players = (0...4).to_a.map { Player.new }
     @current_player = 0
   end
 
