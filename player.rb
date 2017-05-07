@@ -19,4 +19,8 @@ class Player
       [4, 3]
     end
   end
+
+  def num_dice(value)
+    @dice.select { |d| d.value == value }.length
+  end
 end

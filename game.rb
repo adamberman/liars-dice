@@ -30,7 +30,16 @@ class Game
       current_bet = players[current_player].make_bet(previous_bet)
     end
 
-    # handle challenge
-    # return losing player
+    if challenge_successful?(players, previous_bet)
+      players[(current_player - 1) % players.length]
+    else
+      players[current_player]
+    end
+  end
+
+  def challenge_successful?(players, previous_bet)
+    bet_num_dice, dice_value = previous_bet
+    actual_num_dice = players.reduce(0) { |sum, p| sum + p.num_dice(dice_value) }
+    bet_num_dice > actual_num_dice
   end
 end
