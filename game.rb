@@ -1,8 +1,8 @@
-require_relative "./player"
+require_relative "./human_player"
 
 class Game
   def initialize
-    @players = (0...4).to_a.map { Player.new }
+    @players = (0...4).to_a.map { HumanPlayer.new }
   end
 
   def play_round

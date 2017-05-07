@@ -13,10 +13,10 @@ class Player
   end
 
   def make_bet(previous_bet)
-    if previous_bet
+    if previous_bet && challenge_previous_bet?(previous_bet)
       :challenge
     else
-      [4, 3]
+      decide_on_bet(previous_bet)
     end
   end
 
@@ -26,5 +26,15 @@ class Player
 
   def lose_die
     @dice.pop
+  end
+
+  private
+
+  def challenge_previous_bet?(previous_bet)
+    raise "Must implement on child class"
+  end
+
+  def decide_on_bet(previous_bet)
+    raise "Must implement on child class"
   end
 end
