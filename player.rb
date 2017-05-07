@@ -23,4 +23,8 @@ class Player
   def num_dice(value)
     @dice.select { |d| d.value == value }.length
   end
+
+  def lose_die
+    @dice.pop
+  end
 end

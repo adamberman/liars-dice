@@ -11,8 +11,7 @@ class Game
     puts "The following players are in for this round: #{players_for_round}"
     players_for_round.each(&:roll_dice)
     losing_player = play_round_of_betting(players_for_round)
-    # players bet or challenge
-    # losing player loses a die
+    losing_player.remove_die
   end
 
   private
