@@ -13,6 +13,7 @@ class Player
   end
 
   def make_bet(previous_bet)
+    puts "Your dice are #{@dice}"
     if previous_bet && challenge_previous_bet?(previous_bet)
       :challenge
     else
