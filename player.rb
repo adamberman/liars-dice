@@ -1,5 +1,6 @@
 class Player
-  def initialize
+  def initialize(game)
+    @game = game
     @dice = (0...5).to_a.map { Die.new }
     puts "You've created a player"
   end
@@ -22,7 +23,11 @@ class Player
   end
 
   def num_dice(value)
-    @dice.select { |d| d.value == value }.length
+    if value
+      @dice.select { |d| d.value == value }.length
+    else
+      @dice.length
+    end
   end
 
   def lose_die

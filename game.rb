@@ -2,7 +2,7 @@ require_relative "./human_player"
 
 class Game
   def initialize
-    @players = (0...4).to_a.map { HumanPlayer.new }
+    @players = (0...4).to_a.map { HumanPlayer.new(self) }
   end
 
   def play_round
@@ -12,6 +12,10 @@ class Game
     players_for_round.each(&:roll_dice)
     losing_player = play_round_of_betting(players_for_round)
     losing_player.remove_die
+  end
+
+  def total_dice_left
+    players_with_dice.reduce(0) { |sum, player| sum + player.num_dice }
   end
 
   private
