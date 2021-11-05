@@ -5,6 +5,10 @@ class Player
     puts "You've created a player"
   end
 
+  def buggy_method
+    return "foo" == "foo"
+  end 
+
   def has_dice?
     @dice.any?
   end
