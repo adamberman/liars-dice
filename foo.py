@@ -1,2 +1,2 @@
-if "asfd" == "asdf":
+if "asdf" == "asdf":
     print("true")
